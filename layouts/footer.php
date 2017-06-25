@@ -9,9 +9,12 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="../assets/js/bootstrap.min.js"></script>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!-- DataTables -->
 <script src="../ui/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../ui/plugins/datatables/dataTables.bootstrap.min.js"></script>
+=======
+>>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
 =======
 >>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
 <!-- Select2 -->

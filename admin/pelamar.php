@@ -13,6 +13,7 @@ include_once '../layouts/head.php';
     <section class="content-header">
       <h1>
 <<<<<<< HEAD
+<<<<<<< HEAD
         Data Tables
         <small>advanced tables</small>
       </h1>
@@ -21,18 +22,24 @@ include_once '../layouts/head.php';
         <li><a href="#">Tables</a></li>
         <li class="active">Data tables</li>
 =======
+=======
+>>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
         Dashboard
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li class="active">Dashboard</li>
+<<<<<<< HEAD
+>>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
+=======
 >>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
       </ol>
     </section>
 
     <!-- Main content -->
     <section class="content">
+<<<<<<< HEAD
 <<<<<<< HEAD
       <div class="row">
         <div class="col-xs-12">
@@ -478,6 +485,8 @@ include_once '../layouts/head.php';
         </div>
       </div>
 =======
+=======
+>>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
 
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
@@ -867,6 +876,9 @@ include_once '../layouts/head.php';
       </div>
       <!-- /.row -->
 
+<<<<<<< HEAD
+>>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
+=======
 >>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
     </section>
     <!-- /.content -->
@@ -882,6 +894,7 @@ include_once '../layouts/head.php';
 	<script>
 	 $(function () {
 <<<<<<< HEAD
+<<<<<<< HEAD
     $("#example1").DataTable();
     $('#example2').DataTable({
       "paging": true,
@@ -893,6 +906,8 @@ include_once '../layouts/head.php';
     });
   });
 =======
+=======
+>>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
 	   //Initialize Select2 Elements
 	   $(".select2").select2();
 
@@ -957,6 +972,9 @@ include_once '../layouts/head.php';
 	     showInputs: false
 	   });
 	 });
+<<<<<<< HEAD
+>>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
+=======
 >>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
 	</script>
 </body>
