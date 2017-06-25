@@ -8,6 +8,9 @@
 </script>
 <!-- Bootstrap 3.3.7 -->
 <script src="../assets/js/bootstrap.min.js"></script>
+<!-- DataTables -->
+<script src="../ui/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../ui/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <!-- Select2 -->
 <script src="../ui/plugins/select2/select2.full.min.js"></script>
 <!-- InputMask -->
