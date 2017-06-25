@@ -9,25 +9,15 @@
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
   <!-- Font Awesome online -->
-<<<<<<< HEAD
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css"> -->
   <!-- Font Awesome offline-->
   <link rel="stylesheet" href="../ui/font-awesome-4.7.0/css/font-awesome.min.css">
-=======
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <!-- Font Awesome offline-->
-  <!-- <link rel="stylesheet" href="../ui/font-awesome-4.7.0/css/font-awesome.min.css"> -->
->>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
 
   <!-- Ionicons -->
   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"> -->
   <link rel="stylesheet" href="../ui/ionicons-2.0.1/css/ionicons.min.css">
-<<<<<<< HEAD
   <!-- DataTables -->
   <link rel="stylesheet" href="../ui/plugins/datatables/dataTables.bootstrap.css">
-=======
-
->>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
   <!-- Daterange picker -->
   <link rel="stylesheet" href="../ui/plugins/daterangepicker/daterangepicker.css">
   <!-- Date Picker -->
@@ -56,16 +46,6 @@
   <!-- bootstrap wysihtml5 - text editor -->
   <link rel="stylesheet" href="../ui/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
-<<<<<<< HEAD
-=======
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
->>>>>>> 5eba066555539e48a16e3753ba235e6a27ff166d
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
