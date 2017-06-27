@@ -26,7 +26,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="pelamar.php"><i class="fa fa-group"></i> Data Pelamar</a></li>
-            <li><a href="#"><i class="fa fa-tags"></i> Data Kriteria</a></li>
+            <li><a href="kriteria.php"><i class="fa fa-tags"></i> Data Kriteria</a></li>
             <li><a href="#"><i class="fa fa-sitemap"></i> Data Pembobotan</a></li>
           </ul>
         </li>

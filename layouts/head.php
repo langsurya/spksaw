@@ -51,7 +51,7 @@
 </head>
 <?php 
 session_start();
-
+include '../inc/config.php';
 //jika session username belum dibuat, atau session username kosong
 if (!isset($_SESSION['username']) || empty($_SESSION['username'])) {
   //redirect ke halaman login
