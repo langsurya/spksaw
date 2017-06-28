@@ -12,12 +12,12 @@ include_once '../layouts/head.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Kriteria
+        Data Pembobotan
         <small>Pt. </small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active">Kriteria</li>
+        <li class="active">Pembobotan</li>
       </ol>
     </section>
 
@@ -27,8 +27,8 @@ include_once '../layouts/head.php';
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Kriteria</h3>
-              <a href="kriteria_tambah.php" class="btn btn-info pull-right"><i class="fa fa-plus"></i> Tambah Kriteria</a>
+              <h3 class="box-title">Data Pembobotan</h3>
+              <a href="pembobotan_tambah.php" class="btn btn-info pull-right"><i class="fa fa-plus"></i> Tambah Pembobotan</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -36,22 +36,22 @@ include_once '../layouts/head.php';
                 <thead>
                 <tr align="center">
                   <th width="10px">#</th>
-                  <th>Nama Kriteria</th>
-                  <th>Atribut</th>
+                  <th>Nama Pembobotan</th>
+                  <th>Nilai</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php 
                   $no=0;
-                  $kriteria=mysqli_query($konek, "SELECT * FROM tbl_kriteria");
-                  while ($data = mysqli_fetch_array($kriteria)) { ?>
+                  $pembobotan=mysqli_query($konek, "SELECT * FROM tbl_pembobotan");
+                  while ($data = mysqli_fetch_array($pembobotan)) { ?>
                     <tr align="center">
                       <td><?php echo $no=$no+1; ?></td>
-                      <td><?php print($data['nama_kriteria']); ?></td>
-                      <td><?php print($data['atribut']); ?></td>
+                      <td><?php print($data['nama_bobot']); ?></td>
+                      <td><?php print($data['nilai']); ?></td>
                       <td>
-                        <a href="kriteria_edit.php?id=<?=$data['id']?>"><i class="fa fa-edit"></i></a> <a href="hapus.php?data=tbl_kriteria&id=<?=$data['id']?>"><i class="fa fa-trash"></i></a>
+                        <a href="pembobotan_edit.php?id=<?=$data['id']?>"><i class="fa fa-edit"></i></a> <a href="hapus.php?data=tbl_pembobotan&id=<?=$data['id']?>"><i class="fa fa-trash"></i></a>
                       </td>
                     </tr>
                   <?php }

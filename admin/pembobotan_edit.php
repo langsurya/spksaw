@@ -2,7 +2,7 @@
 include_once '../layouts/head.php';
 if (isset($_GET['id'])) {
   $id = $_GET['id'];
-  $query = "SELECT * FROM tbl_kriteria WHERE id=".$id;
+  $query = "SELECT * FROM tbl_pembobotan WHERE id=".$id;
   $result = mysqli_query($konek, $query);
   $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 }
@@ -18,13 +18,13 @@ if (isset($_GET['id'])) {
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Kriteria
-        <small>Edit Kriteria</small>
+        Pembobotan
+        <small>Edit Pembobotan</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
-        <li><a href="kriteria.php">Kriteria</a></li>
-        <li class="active">Edit Kriteria</li>
+        <li><a href="pembobotan.php">Pembobotan</a></li>
+        <li class="active">Edit Pembobotan</li>
       </ol>
     </section>
 
@@ -38,23 +38,19 @@ if (isset($_GET['id'])) {
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
-              <h3 class="box-title">Edit Kriteria</h3>
+              <h3 class="box-title">Edit Pembobotan</h3>
             </div>
             <!-- /.box-header -->
             <!-- form start -->
             <form role="form" action="" method="POST">
               <div class="box-body">
                 <div class="form-group col-md-6">
-                  <label for="kriteria">Nama Kriteria</label>
-                  <input type="text" name="nama_kriteria" class="form-control" id="kriteria" placeholder="Enter Kriteria" value="<?=$row['nama_kriteria']?>">
+                  <label for="kriteria">Nama Bobot</label>
+                  <input type="text" name="nama_bobot" class="form-control" id="kriteria" placeholder="Enter Kriteria" value="<?=$row['nama_bobot']?>">
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="atribut">Atribut</label>
-                  <select name="atribut" class="form-control">
-                    <option> Pilih Atribut</option>
-                    <option value="benefit" <?=($row['atribut']=='benefit') ? 'selected' : ''; ?>>Benefit</option>
-                    <option value="cost" <?=($row['atribut']=='cost') ? 'selected' : ''; ?>>Cost</option>
-                  </select>
+                  <label for="nilai">Nilai</label>
+                  <input type="text" name="nilai" class="form-control" id="nilai" placeholder="Enter Nilai" value="<?=$row['nilai']?>">
                 </div>
               </div>
               <!-- /.box-body -->
@@ -67,13 +63,13 @@ if (isset($_GET['id'])) {
             <?php
               if(isset($_POST['update'])){
                 $id = $_GET['id'];
-                $nama_kriteria = $_POST['nama_kriteria'];
-                $atribut = $_POST['atribut'];
-                $query = "UPDATE tbl_kriteria SET nama_kriteria='$nama_kriteria', atribut='$atribut' WHERE id='$id'";
+                $nama_bobot = $_POST['nama_bobot'];
+                $nilai = $_POST['nilai'];
+                $query = "UPDATE tbl_pembobotan SET nama_bobot='$nama_bobot', nilai='$nilai' WHERE id='$id'";
                 $result = mysqli_query($konek, $query);
                 if ($result) {
-                  echo "<script>window.alert('Data Kriteria berhasil diubah');
-                        window.location=(href='kriteria.php')</script>";
+                  echo "<script>window.alert('Data Pembobotan berhasil diubah');
+                        window.location=(href='pembobotan.php')</script>";
                 }else{
                   echo "Error updating record: " . mysqli_error($konek);
                 }
