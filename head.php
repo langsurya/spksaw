@@ -33,3 +33,11 @@
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+<?php
+session_start();
+include 'inc/config.php';
+//jika session username belum dibuat, atau session username kosong
+if (isset($_SESSION['username']) || !empty($_SESSION['username'])) {
+  //redirect ke halaman login
+  header('location:admin/');
+}

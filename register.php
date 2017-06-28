@@ -1,4 +1,4 @@
-<?php include_once 'layouts/head.php'; ?>
+<?php include_once 'head.php'; ?>
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">

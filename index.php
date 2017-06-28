@@ -1,6 +1,15 @@
-<?php include 'head.php'; ?>
+<?php
+ include 'head.php'; 
+ ?>
 <body class="hold-transition login-page">
 <div class="login-box">
+  <?php 
+    if (isset($_GET['error'])==4) { ?>
+      <div>
+        <b><font color="red"> Username Atau Password Salah, Silahkan Coba Lagi.</font></b>
+      </div>
+    <?php }
+    ?>
   <div class="login-logo">
     <a href="index.php"><b>Metode</b>SAW</a>
   </div>

@@ -15,5 +15,5 @@ if(mysqli_num_rows($login)==1){
 
 	header('location:admin/');
 } else {
-	header('location:login.php?error=4');
+	header('location:index.php?error=4');
 }
