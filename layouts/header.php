@@ -26,13 +26,13 @@
               <li class="user-header">
                 <img src="../ui/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
-                <p>
+                <!-- <p>
                   Alexander Pierce - Web Developer
                   <small>Member since Nov. 2012</small>
-                </p>
+                </p> -->
               </li>
               <!-- Menu Body -->
-              <li class="user-body">
+              <!-- <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
                     <a href="#">Followers</a>
@@ -44,8 +44,8 @@
                     <a href="#">Friends</a>
                   </div>
                 </div>
+              </li> -->
                 <!-- /.row -->
-              </li>
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">

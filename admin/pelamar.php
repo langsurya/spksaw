@@ -35,56 +35,23 @@ include_once '../layouts/head.php';
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Rendering engine</th>
-                  <th>Browser</th>
-                  <th>Platform(s)</th>
-                  <th>Engine version</th>
-                  <th>CSS grade</th>
+                  <th width="10px">#</th>
+                  <th>No Pelamar</th>
+                  <th>Nama</th>
+                  <th>Usia</th>
+                  <th>Lulusan</th>
+                  <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 
                 <tr>
+                  <td>1</td>
                   <td>Gecko</td>
                   <td>Firefox 1.0</td>
                   <td>Win 98+ / OSX.2+</td>
                   <td>1.7</td>
                   <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 1.5</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 2.0</td>
-                  <td>Win 98+ / OSX.2+</td>
-                  <td>1.8</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Gecko</td>
-                  <td>Firefox 3.0</td>
-                  <td>Win 2k+ / OSX.3+</td>
-                  <td>1.9</td>
-                  <td>A</td>
-                </tr>
-                <tr>
-                  <td>Misc</td>
-                  <td>PSP browser</td>
-                  <td>PSP</td>
-                  <td>-</td>
-                  <td>C</td>
-                </tr>
-                <tr>
-                  <td>Other browsers</td>
-                  <td>All others</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>U</td>
                 </tr>
                 </tbody>
               </table>
