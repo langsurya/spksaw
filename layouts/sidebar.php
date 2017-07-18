@@ -30,7 +30,21 @@
             <li><a href="pembobotan.php"><i class="fa fa-sitemap"></i> Data Pembobotan</a></li>
           </ul>
         </li>
-        <li><a href="#"><i class="fa fa-user"></i> <span>Users</span></a></li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-sitemap"></i>
+            <span>DATA KLASIFIKASI</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="pelamar.php"><i class="fa fa-group"></i> Data Himpunan Kriteria</a></li>
+            <li><a href="kriteria.php"><i class="fa fa-tags"></i> Proses Klasifikasi</a></li>
+            <li><a href="pembobotan.php"><i class="fa fa-sitemap"></i> Analisa</a></li>
+          </ul>
+        </li>
+        <li><a href="users.php"><i class="fa fa-user"></i> <span>Users</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

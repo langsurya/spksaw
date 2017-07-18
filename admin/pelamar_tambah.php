@@ -35,68 +35,75 @@ include_once '../layouts/head.php';
           </div>
         </div>
         <!-- /.box-header -->
-        <div class="box-body">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>No Pelamar</label>
-                <input type="text" class="form-control" name="no">
+        <form action="proses.php?aksi=pelamar" method="POST">
+          <div class="box-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>No Pelamar</label>
+                  <?php 
+                  $result = mysqli_query($konek, "SELECT id FROM tbl_pelamar ORDER BY id DESC LIMIT 1");
+                  $idP = mysqli_fetch_array($result);
+                  $idP = $idP['id']+1;
+                  ?>
+                  <input type="text" class="form-control" name="id_pelamar" value="CP0<?=$idP?>">
+                </div>
+                <div class="form-group">
+                  <label>Nama Pelamar</label>
+                  <input type="text" class="form-control" name="nama">
+                </div>
+                <div class="form-group">
+                  <label>Jenis Kelamin</label>
+                  <select class="form-control" name="jk">
+                    <option value="L">Laki-laki</option>
+                    <option value="P">Perempuan</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Agama</label>
+                  <input type="text" class="form-control" name="agama">
+                </div>
+                <div class="form-group">
+                  <label>Alamat Pelamar</label>
+                  <input type="text" class="form-control" name="alamat">
+                </div>
+                <div class="form-group">
+                  <label>No Telp</label>
+                  <input type="text" class="form-control" name="no_telp">
+                </div>
+                <div class="form-group">
+                  <label>Status</label>
+                  <input type="text" class="form-control" name="status_kawin">
+                </div>              
               </div>
-              <div class="form-group">
-                <label>Nama Pelamar</label>
-                <input type="text" class="form-control" name="nama">
+              <!-- /.col -->
+              <div class="col-md-6">
+                <!-- /.form-group -->
+                <div class="form-group">
+                  <label>Pendidikan Terakhir</label>
+                  <select name="pendidikan_terakhir" class="form-control select2" style="width: 100%;">
+                  <option>Pilih Pendidikan</option>
+                    <option value="SMA">SMA/SMK</option>
+                    <option value="D3">D3</option>
+                    <option value="S1">S1</option>
+                    <option value="S2">S2</option>
+                    <option value="S3">S3</option>
+                  </select>
+                </div>
+                <!-- /.form-group -->
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" class="form-control" name="email">
+                </div>
               </div>
-              <div class="form-group">
-                <label>Jenis Kelamin</label>
-                <select class="form-control" name="jk">
-                  <option value="L">Laki-laki</option>
-                  <option value="P">Perempuan</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Agama</label>
-                <input type="text" class="form-control" name="agama">
-              </div>
-              <div class="form-group">
-                <label>Alamat Pelamar</label>
-                <input type="text" class="form-control" name="">
-              </div>
-              <div class="form-group">
-                <label>No Telp</label>
-                <input type="text" class="form-control" name="no_telp">
-              </div>
-              <div class="form-group">
-                <label>Status</label>
-                <input type="text" class="form-control" name="status">
-              </div>
-              
+              <!-- /.col -->
             </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-              <!-- /.form-group -->
-              <div class="form-group">
-                <label>Lulusan</label>
-                <select class="form-control select2" style="width: 100%;">
-                  <option value="SMA">SMA/SMK</option>
-                  <option value="D3">D3</option>
-                  <option value="S1">S1</option>
-                  <option value="S2">S2</option>
-                  <option value="S3">S3</option>
-                </select>
-              </div>
-              <!-- /.form-group -->
-              <div class="form-group">
-                <label>IPK</label>
-                <input type="text" class="form-control" name="ipk">
-              </div>
-            </div>
-            <!-- /.col -->
-          </div>
 
-          <a  class="btn btn-danger" href="pelamar.php"><span class="fa fa-arrow-left"></span> Back</a>
-          <button class="btn btn-primary pull-right" type="submit"> <span class="fa fa-save"></span> Submit</button>
-          <!-- /.row -->
-        </div>
+            <a class="btn btn-danger" href="pelamar.php"><span class="fa fa-arrow-left"></span> Back</a>
+            <button class="btn btn-primary pull-right" type="submit"> <span class="fa fa-save"></span> Submit</button>
+            <!-- /.row -->
+          </div>          
+        </form>
         <!-- /.box-body -->
         <!-- <div class="box-footer">
           Visit <a href="https://select2.github.io/">Select2 documentation</a> for more examples and information about
