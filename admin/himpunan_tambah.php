@@ -12,12 +12,13 @@ include_once '../layouts/head.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Tambah Pelamar
+        Tambah Himpunan
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active">Tambah Pelamar</li>
+        <li><a href="himpunan.php"> Himpunan</a></li>
+        <li class="active">Tambah Himpunan</li>
       </ol>
     </section>
 
@@ -35,66 +36,35 @@ include_once '../layouts/head.php';
           </div>
         </div>
         <!-- /.box-header -->
-        <form action="proses.php?aksi=tambah&data=pelamar" method="POST">
+        <form action="proses.php?aksi=tambah&data=himpunan" method="POST">
           <div class="box-body">
             <div class="row">
-              <div class="col-md-6">
-                <div class="form-group">
-                  <label>No Pelamar</label>
+              <div class="col-md-12">
+                <div class="form-group col-md-6">
+                  <label>Nama Keriteria</label>
+                  <select name="id_kriteria" class="form-control select2" style="width: 100%;">
                   <?php 
-                  $result = mysqli_query($konek, "SELECT id FROM tbl_pelamar ORDER BY id DESC LIMIT 1");
-                  $idP = mysqli_fetch_array($result);
-                  $idP = $idP['id']+1;
+                  $query = "SELECT * FROM tbl_kriteria order by id asc";
+                  $result = mysqli_query($konek,$query);
+                  while ($data = mysqli_fetch_array($result))
+                    {
+                      echo "<option value='".$data['id']."'>".$data['nama_kriteria']."</option>";
+                    }
                   ?>
-                  <input type="text" class="form-control" name="id_pelamar" value="CP00<?=$idP?>">
-                </div>
-                <div class="form-group">
-                  <label>Nama Pelamar</label>
-                  <input type="text" class="form-control" name="nama">
-                </div>
-                <div class="form-group">
-                  <label>Jenis Kelamin</label>
-                  <select class="form-control" name="jk">
-                    <option value="L">Laki-laki</option>
-                    <option value="P">Perempuan</option>
                   </select>
                 </div>
-                <div class="form-group">
-                  <label>Agama</label>
-                  <input type="text" class="form-control" name="agama">
+                <div class="form-group col-md-12">
+                  <label>Nama Himpunan</label>
+                  <input type="text" class="form-control" name="namahimpunan">
                 </div>
-                <div class="form-group">
-                  <label>Status</label>
-                  <input type="text" class="form-control" name="status_kawin">
+                <div class="form-group col-md-12">
+                  <label>Nilai</label>
+                  <input type="text" class="form-control" name="nilai">
+                </div>
+                <div class="form-group col-md-12">
+                  <label>Keterangan</label>
+                  <input type="text" class="form-control" name="keterangan">
                 </div>              
-              </div>
-              <!-- /.col -->
-              <div class="col-md-6">
-                <!-- /.form-group -->
-                <div class="form-group">
-                  <label>Pendidikan Terakhir</label>
-                  <select name="pendidikan_terakhir" class="form-control select2" style="width: 100%;">
-                  <option>Pilih Pendidikan</option>
-                    <option value="SMA">SMA/SMK</option>
-                    <option value="D3">D3</option>
-                    <option value="S1">S1</option>
-                    <option value="S2">S2</option>
-                    <option value="S3">S3</option>
-                  </select>
-                </div>
-                <!-- /.form-group -->
-                <div class="form-group">
-                  <label>Email</label>
-                  <input type="email" class="form-control" name="email">
-                </div>
-                <div class="form-group">
-                  <label>Alamat Pelamar</label>
-                  <input type="text" class="form-control" name="alamat">
-                </div>
-                <div class="form-group">
-                  <label>No Telp</label>
-                  <input type="text" class="form-control" name="no_telp">
-                </div>
               </div>
               <!-- /.col -->
             </div>

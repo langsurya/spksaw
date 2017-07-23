@@ -1,5 +1,11 @@
 <?php 
 include_once '../layouts/head.php'; 
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+  $query = "SELECT * FROM tbl_pelamar WHERE id=".$id;
+  $result = mysqli_query($konek, $query);
+  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+}
 ?>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
@@ -35,37 +41,33 @@ include_once '../layouts/head.php';
           </div>
         </div>
         <!-- /.box-header -->
-        <form action="proses.php?aksi=tambah&data=pelamar" method="POST">
+        <form action="proses.php?aksi=update&data=pelamar&id=<?=$row['id']?>" method="POST">
           <div class="box-body">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
                   <label>No Pelamar</label>
-                  <?php 
-                  $result = mysqli_query($konek, "SELECT id FROM tbl_pelamar ORDER BY id DESC LIMIT 1");
-                  $idP = mysqli_fetch_array($result);
-                  $idP = $idP['id']+1;
-                  ?>
-                  <input type="text" class="form-control" name="id_pelamar" value="CP00<?=$idP?>">
+                  <input type="text" class="form-control" name="id_pelamar" disabled value="<?=$row['id_pelamar']?>">
                 </div>
                 <div class="form-group">
                   <label>Nama Pelamar</label>
-                  <input type="text" class="form-control" name="nama">
+                  <input type="text" class="form-control" name="nama" value="<?=$row['nama']?>">
                 </div>
                 <div class="form-group">
                   <label>Jenis Kelamin</label>
                   <select class="form-control" name="jk">
-                    <option value="L">Laki-laki</option>
-                    <option value="P">Perempuan</option>
+                    <option></option>
+                    <option value="L" <?=($row['jk']==='L') ? 'selected' : '' ?>>Laki-laki</option>
+                    <option value="P" <?=($row['jk']==='P') ? 'selected' : '' ?>>Perempuan</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label>Agama</label>
-                  <input type="text" class="form-control" name="agama">
+                  <input type="text" class="form-control" name="agama" value="<?=$row['agama']?>">
                 </div>
                 <div class="form-group">
                   <label>Status</label>
-                  <input type="text" class="form-control" name="status_kawin">
+                  <input type="text" class="form-control" name="status_kawin" value="<?=$row['status_kawin']?>">
                 </div>              
               </div>
               <!-- /.col -->
@@ -75,25 +77,25 @@ include_once '../layouts/head.php';
                   <label>Pendidikan Terakhir</label>
                   <select name="pendidikan_terakhir" class="form-control select2" style="width: 100%;">
                   <option>Pilih Pendidikan</option>
-                    <option value="SMA">SMA/SMK</option>
-                    <option value="D3">D3</option>
-                    <option value="S1">S1</option>
-                    <option value="S2">S2</option>
-                    <option value="S3">S3</option>
+                    <option value="SMA" <?=($row['pendidikan_terakhir']==='SMA') ? 'selected' : '' ?>>SMA/SMK</option>
+                    <option value="D3" <?=($row['pendidikan_terakhir']==='D3') ? 'selected' : '' ?>>D3</option>
+                    <option value="S1" <?=($row['pendidikan_terakhir']==='S1') ? 'selected' : '' ?>>S1</option>
+                    <option value="S2" <?=($row['pendidikan_terakhir']==='S2') ? 'selected' : '' ?>>S2</option>
+                    <option value="S3" <?=($row['pendidikan_terakhir']==='S3') ? 'selected' : '' ?>>S3</option>
                   </select>
                 </div>
                 <!-- /.form-group -->
                 <div class="form-group">
                   <label>Email</label>
-                  <input type="email" class="form-control" name="email">
+                  <input type="email" class="form-control" name="email" value="<?=$row['email']?>">
                 </div>
                 <div class="form-group">
                   <label>Alamat Pelamar</label>
-                  <input type="text" class="form-control" name="alamat">
+                  <input type="text" class="form-control" name="alamat" value="<?=$row['alamat']?>">
                 </div>
                 <div class="form-group">
                   <label>No Telp</label>
-                  <input type="text" class="form-control" name="no_telp">
+                  <input type="text" class="form-control" name="no_telp" value="<?=$row['no_telp']?>">
                 </div>
               </div>
               <!-- /.col -->

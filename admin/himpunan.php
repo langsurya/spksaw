@@ -12,12 +12,12 @@ include_once '../layouts/head.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Pelamar
-        <small>Pt. </small>
+        Data Himpunan
+        <!-- <small>Pt. </small> -->
       </h1>
       <ol class="breadcrumb">
         <li><a href="index.php"><i class="fa fa-home"></i> Home</a></li>
-        <li class="active">Pelamar</li>
+        <li class="active">Himpunan</li>
       </ol>
     </section>
 
@@ -27,8 +27,8 @@ include_once '../layouts/head.php';
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Pelamar</h3>
-              <a href="pelamar_tambah.php" class="btn btn-info pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
+              <h3 class="box-title">Data Himpunan</h3>
+              <a href="himpunan_tambah.php" class="btn btn-info pull-right"><i class="fa fa-plus"></i> Tambah Data</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -36,30 +36,28 @@ include_once '../layouts/head.php';
                 <thead>
                 <tr>
                   <th width="10px">#</th>
-                  <th>ID Pelamar</th>
-                  <th>Nama</th>
-                  <th>Jenis kelamin</th>
-                  <th>Lulusan</th>
-                  <th>Status</th>
+                  <th>Nama Kriteria</th>
+                  <th>Nama Himpunan</th>
+                  <th>Nilai</th>
+                  <th>Keterangan</th>
                   <th>Aksi</th>
                 </tr>
                 </thead>
                 <tbody>
                 <?php 
                 $no=1;
-                $kriteria=mysqli_query($konek, "SELECT * FROM tbl_pelamar");
+                $kriteria=mysqli_query($konek, "SELECT tbl_himpunan.*, tbl_kriteria.nama_kriteria, tbl_kriteria.id as id_k  FROM tbl_himpunan, tbl_kriteria WHERE tbl_himpunan.id_kriteria=tbl_kriteria.id order by tbl_kriteria.id asc");
                 while ($data = mysqli_fetch_array($kriteria)) { ?>
                 <tr>
                   <td><?=$no++?></td>
-                  <td><?=$data['id_pelamar']?></td>
-                  <td><?=$data['nama']?></td>
-                  <td><?=($data['jk']=='L') ? 'Laki-Laki' : 'Perempuan'; ?></td>
-                  <td><?=$data['pendidikan_terakhir']?></td>
-                  <td><?=$data['status_kawin']?></td>
+                  <td><?=$data['nama_kriteria']?></td>
+                  <td><?=$data['namahimpunan']?></td>
+                  <td><?=$data['nilai']?></td>
+                  <td><?=$data['keterangan']?></td>
                   <td>
-                    <a href="pelamar_edit.php?id=<?php echo $data['id']; ?>"><i class='fa fa-edit'></i>
+                    <a href="himpunan_edit.php?id=<?php echo $data['id']; ?>"><i class='fa fa-edit'></i>
                     </a>
-                    <a href="proses.php?aksi=hapus&data=tbl_pelamar&id=<?php echo $data['id']; ?>"><i class='fa fa-eraser'></i>
+                    <a href="proses.php?aksi=hapus&data=tbl_himpunan&id=<?php echo $data['id']; ?>"><i class='fa fa-eraser'></i>
                     </a>
                   </td>
                 </tr>
