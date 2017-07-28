@@ -40,7 +40,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="himpunan.php"><i class="fa fa-group"></i> Data Himpunan Kriteria</a></li>
-            <li><a href="kriteria.php"><i class="fa fa-tags"></i> Proses Klasifikasi</a></li>
+            <li><a href="klasifikasi.php"><i class="fa fa-tags"></i> Proses Klasifikasi</a></li>
             <li><a href="pembobotan.php"><i class="fa fa-sitemap"></i> Analisa</a></li>
           </ul>
         </li>

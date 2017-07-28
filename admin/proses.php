@@ -68,9 +68,28 @@ if ($_GET['aksi']==='hapus') {
 	}
 	// aksi update data
 }elseif ($_GET['aksi']==='update') {
-	// jika value data adalah pelamarmaka lakukan proses update data pelamar
+	// jika value data adalah pelamar maka lakukan proses update data pelamar
 	if ($_GET['data']==='pelamar') {
 		$id = $_GET['id'];
+		$nama = $_POST['nama'];
+		$jk = $_POST['jk'];
+		$agama = $_POST['agama'];
+		$status_kawin = $_POST['status_kawin'];
+		$pendidikan_terakhir = $_POST['pendidikan_terakhir'];
+		$email = $_POST['email'];
+		$alamat = $_POST['alamat'];
+		$no_telp = $_POST['no_telp'];
+		$query = "UPDATE tbl_pelamar SET nama='$nama', jk='$jk', agama='$agama', status_kawin='$status_kawin', pendidikan_terakhir='$pendidikan_terakhir', email='$email', alamat='$alamat', no_telp='$no_telp' WHERE id='$id'";
+		$result = mysqli_query($konek, $query);
+   if ($result) {
+     echo "<script>window.alert('Data Pelamar berhasil diubah');
+           window.location=(href='pelamar_edit.php?id=$id')</script>";
+   }else{
+     echo "Error updating record: " . mysqli_error($konek);
+   }
+
+	}elseif ($_GET['data']==='himpunan') {
+		echo "update data himpunan";
 	}
 }
 

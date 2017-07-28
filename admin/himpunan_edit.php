@@ -1,5 +1,12 @@
 <?php 
 include_once '../layouts/head.php'; 
+  $id = $_GET['id'];if (isset($_GET['id'])) {
+
+  $query = "SELECT tbl_himpunan.id_kriteria idK, tbl_himpunan.namahimpunan,tbl_himpunan.nilai,tbl_himpunan.keterangan, tbl_kriteria.nama_kriteria 
+FROM tbl_himpunan INNER JOIN tbl_kriteria ON tbl_himpunan.id=tbl_kriteria.id WHERE tbl_himpunan.id=".$id;
+  $result = mysqli_query($konek, $query);
+  $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+}
 ?>
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
@@ -12,13 +19,13 @@ include_once '../layouts/head.php';
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Tambah Himpunan
+        Edit Himpunan
         <small>Control panel</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
         <li><a href="himpunan.php"> Himpunan</a></li>
-        <li class="active">Tambah Himpunan</li>
+        <li class="active">Edit Himpunan</li>
       </ol>
     </section>
 
@@ -28,7 +35,7 @@ include_once '../layouts/head.php';
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-default">
         <div class="box-header with-border">
-          <h3 class="box-title">Masukan data himpunans</h3>
+          <h3 class="box-title">Edit data Himpunan</h3>
 
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
@@ -36,7 +43,7 @@ include_once '../layouts/head.php';
           </div>
         </div>
         <!-- /.box-header -->
-        <form action="proses.php?aksi=tambah&data=himpunan" method="POST">
+        <form action="proses.php?aksi=update&data=himpunan" method="POST">
           <div class="box-body">
             <div class="row">
               <div class="col-md-12">
@@ -55,15 +62,15 @@ include_once '../layouts/head.php';
                 </div>
                 <div class="form-group col-md-12">
                   <label>Nama Himpunan</label>
-                  <input type="text" class="form-control" name="namahimpunan">
+                  <input type="text" class="form-control" name="namahimpunan" value="<?=$row['namahimpunan']?>">
                 </div>
                 <div class="form-group col-md-12">
                   <label>Nilai</label>
-                  <input type="text" class="form-control" name="nilai">
+                  <input type="text" class="form-control" name="nilai" value="<?=$row['nilai']?>">
                 </div>
                 <div class="form-group col-md-12">
                   <label>Keterangan</label>
-                  <input type="text" class="form-control" name="keterangan">
+                  <input type="text" class="form-control" name="keterangan" value="<?=$row['keterangan']?>">
                 </div>              
               </div>
               <!-- /.col -->
