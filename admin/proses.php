@@ -65,6 +65,25 @@ if ($_GET['aksi']==='hapus') {
 		} else {
 		    echo "Error: " . $sql . "<br>" . $konek->error;
 		}
+	}elseif ($_GET['data']==='klasifikasi') {
+		$queryK = "SELECT * FROM tbl_kriteria";
+  $resultK = mysqli_query($konek,$queryK);
+  $idP = $_POST['id_pelamar'];
+
+  $sql = "INSERT INTO tbl_klasifikasi (id_pelamar, c1, c2, c3, c4)
+		VALUES ('$idP' ";
+	  while ($dataK = mysqli_fetch_array($resultK)) {
+	  	$sql .=	",".$_POST["nama_kriteria$dataK[id]"];
+	  }
+		$sql .= ")";
+		# jika insert data berhasil maka akan mengembalikan halaman ke himpunan data
+		if ($konek->query($sql) === TRUE) {
+		    echo "<script>window.alert('Data Klasifikasi berhasil ditambah');
+		         window.location=(href='klasifikasi.php')</script>";
+		} else {
+		    echo "Error: " . $sql . "<br>" . $konek->error;
+		}
+		echo $sql;
 	}
 	// aksi update data
 }elseif ($_GET['aksi']==='update') {
@@ -89,7 +108,21 @@ if ($_GET['aksi']==='hapus') {
    }
 
 	}elseif ($_GET['data']==='himpunan') {
-		echo "update data himpunan";
+		$id_kriteria = $_POST['id_kriteria'];
+		$namahimpunan = $_POST['namahimpunan'];
+		$nilai = $_POST['nilai'];
+		$keterangan = $_POST['keterangan'];
+		$id = $_POST['id'];
+
+		$query = "UPDATE tbl_himpunan SET id_kriteria='$id_kriteria', namahimpunan='$namahimpunan', nilai='$nilai', keterangan='$keterangan' WHERE id='$id'";
+		$result = mysqli_query($konek, $query);
+   if ($result) {
+     echo "<script>window.alert('Data Himpunan berhasil diubah');
+           window.location=(href='himpunan_edit.php?id=$id')</script>";
+   }else{
+     echo "Error updating record: " . mysqli_error($konek);
+   }
+
 	}
 }
 
