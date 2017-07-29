@@ -4,7 +4,7 @@ include_once '../layouts/head.php';
 <body class="hold-transition skin-blue sidebar-mini">
 	<div class="wrapper">
 		<?php 
-			include_once '../layouts/header.php';
+		include_once '../layouts/header.php';
   	include_once '../layouts/sidebar.php';
 		?>
 		<!-- Content Wrapper. Contains page content -->
@@ -55,7 +55,7 @@ include_once '../layouts/head.php';
                 </tr>
                 <?php 
                   $no=0;
-                  $kriteria=mysqli_query($konek, "SELECT tbl_pelamar.nama, tbl_klasifikasi.c1, tbl_klasifikasi.c2, tbl_klasifikasi.c3, tbl_klasifikasi.c4 FROM tbl_pelamar,tbl_klasifikasi WHERE tbl_pelamar.id=tbl_klasifikasi.id_pelamar");
+                  $kriteria=mysqli_query($konek, "SELECT tbl_pelamar.nama, tbl_klasifikasi.* FROM tbl_pelamar,tbl_klasifikasi WHERE tbl_pelamar.id=tbl_klasifikasi.id_pelamar");
                   while ($data = mysqli_fetch_array($kriteria)) { ?>
                     <tr align="center">
                       <td><?php echo $no=$no+1; ?></td>
@@ -64,6 +64,7 @@ include_once '../layouts/head.php';
                       <td><?=$data['c2']?></td>
                       <td><?=$data['c3']?></td>
                       <td><?=$data['c4']?></td>
+                      <td><?=$data['c5']?></td>
                     </tr>
                   <?php }
                 ?>
@@ -80,7 +81,7 @@ include_once '../layouts/head.php';
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="example2" class="table table-bordered table-striped">
                 <thead>
                 <tr align="center">
                   <th width="10px">#</th>
@@ -107,18 +108,20 @@ include_once '../layouts/head.php';
                 $carimax = mysqli_query($konek, "SELECT max(c1) as max1,
                                 max(c2) as max2,
                                 max(c3) as max3,
-                                max(c4) as max4
+                                max(c4) as max4,
+                                max(c5) as max5
                                 FROM tbl_klasifikasi");
                 $max = mysqli_fetch_array($carimax);
                 # Cari nilai minimal
                 $carimin = mysqli_query($konek, "SELECT min(c1) as min1,
                                 min(c2) as min2,
                                 min(c3) as min3,
-                                min(c4) as min4
+                                min(c4) as min4,
+                                min(c5) as min5
                                 FROM tbl_klasifikasi");
                 $min = mysqli_fetch_array($carimin);
                   $no=0;
-                  $kriteria=mysqli_query($konek, "SELECT tbl_pelamar.nama, tbl_klasifikasi.c1, tbl_klasifikasi.c2, tbl_klasifikasi.c3, tbl_klasifikasi.c4 FROM tbl_pelamar,tbl_klasifikasi WHERE tbl_pelamar.id=tbl_klasifikasi.id_pelamar");
+                  $kriteria=mysqli_query($konek, "SELECT tbl_pelamar.nama, tbl_klasifikasi.* FROM tbl_pelamar,tbl_klasifikasi WHERE tbl_pelamar.id=tbl_klasifikasi.id_pelamar");
                   while ($data = mysqli_fetch_array($kriteria)) { ?>
                     <tr align="center">
                       <td><?php echo $no=$no+1; ?></td>
@@ -126,7 +129,8 @@ include_once '../layouts/head.php';
                       <td><?=round($data['c1']/$max['max1'],2)?></td>
                       <td><?=round($data['c2']/$max['max2'],2)?></td>
                       <td><?=round($data['c3']/$max['max3'],2)?></td>
-                      <td><?=round($data['c4']/$max['max4'],2)?></td>
+                      <td><?=round($min['min4']/$data['c4'],2)?></td>
+                      <td><?=round($min['min5']/$data['c5'],2)?></td>
                     </tr>
                   <?php }
                 ?>
@@ -143,7 +147,7 @@ include_once '../layouts/head.php';
             </div>
             <!-- /.box-header -->
             <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
+              <table id="example2" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th width="10px">#</th>
@@ -156,11 +160,10 @@ include_once '../layouts/head.php';
                 <?php 
                 $kriteria=mysqli_query($konek, "SELECT * FROM tbl_kriteria");
                   while ($data = mysqli_fetch_array($kriteria)) {
-                   $bobotC[] = $_POST["bobotC$data[id]"];
-                   
+                   $bobotC[] = $_POST["bobotC$data[id]"];                   
                    }
                   $no=0;
-                  $kriteria=mysqli_query($konek, "SELECT tbl_pelamar.nama, tbl_klasifikasi.c1, tbl_klasifikasi.c2, tbl_klasifikasi.c3, tbl_klasifikasi.c4 FROM tbl_pelamar,tbl_klasifikasi WHERE tbl_pelamar.id=tbl_klasifikasi.id_pelamar");
+                  $kriteria=mysqli_query($konek, "SELECT tbl_pelamar.nama, tbl_klasifikasi.* FROM tbl_pelamar,tbl_klasifikasi WHERE tbl_pelamar.id=tbl_klasifikasi.id_pelamar");
                   while ($data = mysqli_fetch_array($kriteria)) { ?>
                     <tr align="center">
                       <td><?php echo $no=$no+1; ?></td>
@@ -169,7 +172,8 @@ include_once '../layouts/head.php';
                         (($data['c1']/$max['max1'])*$bobotC[0])+
                         (($data['c2']/$max['max2'])*$bobotC[1])+
                         (($data['c3']/$max['max3'])*$bobotC[2])+
-                        (($data['c4']/$max['max4'])*$bobotC[3]),2)?></td>
+                        (($min['min4']/$data['c4'])*$bobotC[3])+
+                        (($min['min5']/$data['c5'])*$bobotC[3]),3)?></td>
                     </tr>
                   <?php }
                 ?>
@@ -195,7 +199,8 @@ include_once '../layouts/head.php';
 	<script>
 	 $(function () {
     $("#example1").DataTable();
-    $('#example2').DataTable({
+    $("#example2").DataTable();
+    $('#example3').DataTable({
       "paging": true,
       "lengthChange": false,
       "searching": false,

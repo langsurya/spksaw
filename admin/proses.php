@@ -70,7 +70,7 @@ if ($_GET['aksi']==='hapus') {
   $resultK = mysqli_query($konek,$queryK);
   $idP = $_POST['id_pelamar'];
 
-  $sql = "INSERT INTO tbl_klasifikasi (id_pelamar, c1, c2, c3, c4)
+  $sql = "INSERT INTO tbl_klasifikasi (id_pelamar, c1, c2, c3, c4, c5)
 		VALUES ('$idP' ";
 	  while ($dataK = mysqli_fetch_array($resultK)) {
 	  	$sql .=	",".$_POST["nama_kriteria$dataK[id]"];

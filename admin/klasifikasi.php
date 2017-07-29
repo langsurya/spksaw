@@ -49,7 +49,7 @@ include_once '../layouts/head.php';
                 <tbody>
                 <?php 
                   $no=0;
-                  $kriteria=mysqli_query($konek, "SELECT tbl_pelamar.nama, tbl_klasifikasi.c1, tbl_klasifikasi.c2, tbl_klasifikasi.c3, tbl_klasifikasi.c4 FROM tbl_pelamar,tbl_klasifikasi WHERE tbl_pelamar.id=tbl_klasifikasi.id_pelamar");
+                  $kriteria=mysqli_query($konek, "SELECT tbl_pelamar.nama, tbl_klasifikasi.* FROM tbl_pelamar,tbl_klasifikasi WHERE tbl_pelamar.id=tbl_klasifikasi.id_pelamar");
                   while ($data = mysqli_fetch_array($kriteria)) { ?>
                     <tr align="center">
                       <td><?php echo $no=$no+1; ?></td>
@@ -58,6 +58,7 @@ include_once '../layouts/head.php';
                       <td><?=$data['c2']?></td>
                       <td><?=$data['c3']?></td>
                       <td><?=$data['c4']?></td>
+                      <td><?=$data['c5']?></td>
                       <td>edit | delete</td>
                     </tr>
                   <?php }
